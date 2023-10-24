@@ -3,7 +3,7 @@ from django.shortcuts import render
 from .models import Game
 
 # CBV imports
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 # Create your views here.
@@ -16,6 +16,10 @@ def home(request):
 class GameList(ListView):
     model = Game
     template_name = "games/game_list.html"
+
+class GameDetail(DetailView):
+    model = Game
+    template_name = "games/game_detail.html"
 
 
 
