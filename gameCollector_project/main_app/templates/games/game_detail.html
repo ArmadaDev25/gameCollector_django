@@ -1,5 +1,17 @@
 {% extends 'base.html' %} 
 {% block content %}
+<h1>{{game.name}}</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Game Information</span>
+        <p>Developer: {{game.developer}}</p>
+        <p>Release Year: {{game.year}}</p>
+
+    </div>
+
+
+</div>
 
 
 {% endblock %}
