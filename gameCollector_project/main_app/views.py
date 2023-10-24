@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .models import Game
 
 # CBV imports
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
 
