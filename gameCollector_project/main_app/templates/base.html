@@ -6,11 +6,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-    <header class="navbar-fixed">
-        <nav>
+    <header>
+        <nav class="nav-extended">
             <div class="nav-wrapper">
                 <ul>
                     <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Game Collector</a></li>
+                </ul>
+                
+            </div>
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="{% url 'game_list'%}">Game List</a></li>
+
                 </ul>
             </div>
         </nav>
