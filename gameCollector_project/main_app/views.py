@@ -9,7 +9,7 @@ from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
-#Home Route
+# Home Route
 def home(request):
     return render(request, 'home.html')
 
@@ -22,6 +22,10 @@ class GameDetail(DetailView):
     model = Game
     template_name = "games/game_detail.html"
 
+class GameCreate(CreateView):
+    model = Game
+    template_name = "games/game_form.html"
+    fields = "__all__"
 
 
 
