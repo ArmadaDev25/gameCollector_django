@@ -32,6 +32,10 @@ class GameUpdate(UpdateView):
     template_name = "games/game_form.html"
     fields = "__all__"
 
+class GameDelete(DeleteView):
+    model = Game
+    sucess_url = '/games'
+
 
 
 
