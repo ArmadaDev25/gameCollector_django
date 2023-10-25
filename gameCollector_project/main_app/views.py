@@ -34,7 +34,8 @@ class GameUpdate(UpdateView):
 
 class GameDelete(DeleteView):
     model = Game
-    sucess_url = '/games'
+    template_name = "games/game_confirm_delete.html"
+    success_url = '/games'
 
 
 
