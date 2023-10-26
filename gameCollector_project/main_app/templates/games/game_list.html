@@ -5,7 +5,9 @@
 {% for game in game_list %}
     <a href="{% url 'game_detail' game.id %}">
         <div class="card">
-            <p>{{game.name}}</p>
+            <div class="card-content">
+                <p>{{game.name}}</p>
+            </div>
         </div>
     </a>
     
