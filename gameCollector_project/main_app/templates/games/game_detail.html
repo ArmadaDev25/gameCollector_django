@@ -17,6 +17,46 @@
 
 
 </div>
+{%for photo in game.photo_set.all%}
+    <img src="{{photo.url}}" alt="Game Photo" class="responsive-img card-panel">
+{%empty%}
+    <div class="card-panel teal-text center-align">
+        No Photos Uploaded
+    </div>
+{% endfor %}
+<form action="{%url 'add_photo' game.id%}" enctype="multipart/form-data" method="POST" class="card-panel">
+    {%csrf_token%}
+    <input type="file" name='photo_file'>
+    <button class="btn" type='submit'>
+        Upload Photo
+    </button>
+</form>
+
+
+<div class="card">
+    <div class="card-content">
+    <span class="card-title">Additional Content</span>
+    <form action="{%url 'add_content' game.id%}" method="POST">
+        {% csrf_token %}
+        {{ addcontentform.as_p }}
+        <input type="submit" class="btn" value="Add New Content"/>    
+    </form>
+
+    <table class="stripped">
+        <thead>
+            
+        </thead>
+        <tbody>
+            {% for newcontent in game.newcontent_set.all%}
+                <tr>
+                    <td>{{newcontent.name}}</td>
+                    <td>{{newcontent.date}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
+</div>
 
 
 {% endblock %}
