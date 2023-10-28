@@ -13,12 +13,24 @@ class Game(models.Model):
     def get_absolute_url(self):
         return reverse('game_detail', kwargs={'pk':self.id})
 
+
 class NewContent(models.Model):
     name = models.CharField(max_length=50)
     date = models.DateField('Release Date')
 
     # Model that NewContent will be attacted to 
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
+class Features(models.Model):
+    name = models.CharField(max_length=20)
+    description = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('features_detail', kwargs={'pk': self.id})
+
 
 class Photo(models.Model):
     url = models.CharField(max_length=200)

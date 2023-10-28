@@ -13,4 +13,7 @@ urlpatterns = [
     path('games/<int:pk>/add_content/', views.add_content, name='add_content'),
 
     path('games/<int:game_id>/add_photo/', views.add_photo, name='add_photo'),
+
+    #Features URLS
+    path('features/', views.FeatureList.as_view(), name='features_list'),
 ]

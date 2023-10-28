@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 # Models import
-from .models import Game, Photo, NewContent
+from .models import Game, Photo, NewContent, Features
 
 # CBV imports
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -70,6 +70,13 @@ class GameDelete(DeleteView):
     model = Game
     template_name = "games/game_confirm_delete.html"
     success_url = '/games'
+
+#Features CBV
+class FeatureList(ListView):
+    model = Features
+    template_name = "features/features_list.html"
+
+
 
 def add_content(request, pk):
     form = NewContentForm(request.POST)

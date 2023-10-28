@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Game Features</h1>
+
+{% for feature in features_list %}
+    <a href="#">
+        <div class="card">
+            <div class="card-content">
+                <p>{{feature.name}}</p>
+            </div>
+        </div>
+    </a>
+    
+
+{% endfor %}
+
+{% endblock %}
