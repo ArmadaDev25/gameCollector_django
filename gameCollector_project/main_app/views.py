@@ -73,7 +73,7 @@ class GameCreate(CreateView):
 class GameUpdate(UpdateView):
     model = Game
     template_name = "games/game_form.html"
-    fields = "__all__"
+    fields = ['name', 'developer', 'year']
 
 class GameDelete(DeleteView):
     model = Game
