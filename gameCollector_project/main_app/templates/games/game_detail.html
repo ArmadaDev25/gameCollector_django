@@ -25,6 +25,24 @@
             <p>This Game Has No Features</p>
         {% endif %}
     </div>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title"> Avalible Features</span>
+            {% if missing_feats.count %}
+                {% for feats in missing_feats.all %}
+                    <div class="card">
+                        <div class="card-content">
+                            <p>{{feats.name}}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>{{game.name}} has all of the features</p>
+            {% endif %}
+
+        </div>
+
+    </div>
 
 </div>
 

@@ -20,13 +20,19 @@ import os # to access .env keys
 def home(request):
     return render(request, 'home.html')
 
-def GameDetail(request, pk):
-    game = Game.objects.get(id=pk)
+def GameDetail(request, game_id):
+    game = Game.objects.get(id=game_id)
     addcontentform = NewContentForm()
+    features = Features
+    #List of features that the games does have
+    feat_list = game.features.all().values_list('id')
+    missing_feats = Features.objects.exclude(id__in=feat_list)
+    
     return render(request, 'games/game_detail.html',
     {
         'game' : game,
-        'addcontentform' : addcontentform
+        'addcontentform' : addcontentform,
+        'missing_feats' : missing_feats,
 
     })
 
