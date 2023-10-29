@@ -17,6 +17,17 @@
 
 
 </div>
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Game Features</span>
+        {% if game.features.count %}
+        {% else %}
+            <p>This Game Has No Features</p>
+        {% endif %}
+    </div>
+
+</div>
+
 {%for photo in game.photo_set.all%}
     <img src="{{photo.url}}" alt="Game Photo" class="responsive-img card-panel">
 {%empty%}
