@@ -20,8 +20,8 @@ import os # to access .env keys
 def home(request):
     return render(request, 'home.html')
 
-def GameDetail(request, game_id):
-    game = Game.objects.get(id=game_id)
+def GameDetail(request, pk):
+    game = Game.objects.get(id=pk)
     addcontentform = NewContentForm()
     features = Features
     #List of features that the games does have
@@ -36,6 +36,9 @@ def GameDetail(request, game_id):
 
     })
 
+def assoc_feat(request, pk, feat_pk):
+    Game.objects.get(id=pk).features.add(feat_pk)
+    return redirect('game_detail', pk=pk)
 
 
 # Photo View
@@ -65,7 +68,7 @@ class GameList(ListView):
 class GameCreate(CreateView):
     model = Game
     template_name = "games/game_form.html"
-    fields = "__all__"
+    fields = ['name', 'developer', 'year']
 
 class GameUpdate(UpdateView):
     model = Game

@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('games/', views.GameList.as_view(), name='game_list'),
-    path('games/<int:game_id>/', views.GameDetail, name='game_detail'),
+    path('games/<int:pk>/', views.GameDetail, name='game_detail'),
     path('games/create/', views.GameCreate.as_view(), name='game_form'),
     path('games/<int:pk>/update/', views.GameUpdate.as_view(), name='game_update'),
     path('games/<int:pk>/delete/', views.GameDelete.as_view(), name='game_delete'),
@@ -17,5 +17,7 @@ urlpatterns = [
     #Features URLS
     path('features/', views.FeatureList.as_view(), name='features_list'),
     path('features/create/', views.FeatureCreate.as_view(), name='feature_create'),
-    path('features/<int:pk>/', views.FeatureDetail.as_view(), name='features_detail')
+    path('features/<int:pk>/', views.FeatureDetail.as_view(), name='features_detail'),
+    path('games/<int:pk>/assoc_feat/<int:feat_pk>/', views.assoc_feat, name='assoc_feat'),
+
 ]
