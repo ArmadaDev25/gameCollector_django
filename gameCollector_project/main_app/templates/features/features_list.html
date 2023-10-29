@@ -3,7 +3,7 @@
 <h1>Game Features</h1>
 
 {% for feature in features_list %}
-    <a href="#">
+    <a href="{% url 'features_detail' feature.id %}">
         <div class="card">
             <div class="card-content">
                 <p>{{feature.name}}</p>

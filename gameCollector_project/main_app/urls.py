@@ -16,4 +16,6 @@ urlpatterns = [
 
     #Features URLS
     path('features/', views.FeatureList.as_view(), name='features_list'),
+    path('features/create/', views.FeatureCreate.as_view(), name='feature_create'),
+    path('features/<int:pk>/', views.FeatureDetail.as_view(), name='features_detail')
 ]

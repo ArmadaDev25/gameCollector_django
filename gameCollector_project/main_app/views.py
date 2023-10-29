@@ -76,6 +76,15 @@ class FeatureList(ListView):
     model = Features
     template_name = "features/features_list.html"
 
+class FeatureCreate(CreateView):
+    model = Features
+    fields = "__all__"
+    template_name = "features/features_form.html"
+
+class FeatureDetail(DetailView):
+    model = Features
+    template_name = "features/features_detail.html"
+
 
 
 def add_content(request, pk):
